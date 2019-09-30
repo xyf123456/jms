@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!--导入公共的配置-->
+    <import resource="common.xml"/>
+    <!--将ConsumerMessageListener消息监听者注入到Spring容器中-->
+    <bean class="com.tt.jms.consumer.ConsumerMessageListener" id="consumerMessageListener"/>
+    <!--配置消息容器-->
+    <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer" id="listenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <!--<property name="destination" ref="queueDestination"/>-->
+        <property name="destination" ref="topicDestination"/>
+        <property name="messageListener" ref="consumerMessageListener"/>
+    </bean>
+
+</beans>

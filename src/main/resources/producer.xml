@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <import resource="common.xml"/>
+
+    <!--JMLTemplate用于发送和接收消息的模板类-->
+    <bean class="org.springframework.jms.core.JmsTemplate" id="jmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+    </bean>
+    <!--将ProducerServiceImpl注入到Spring容器中-->
+     <bean class="com.tt.jms.producer.ProducerServiceImpl" id="producerService"/>
+</beans>
