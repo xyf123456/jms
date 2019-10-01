@@ -9,9 +9,11 @@ import javax.jms.*;
  */
 public class AppProducer {
 //    61616是activemq的默认的端口号
-    private static final String url="tcp://192.168.0.102:61616";
+//    private static final String url="tcp://192.168.0.102:61616";
+    private static final String url="failover:(tcp://117.50.18.125:61617,tcp://117.50.18.125:61618)randomize=true";
 //    创建队列的名称
-    private static final String queueName="queue-test";
+//    private static final String queueName="queue-test";
+    private static final String queueName="queue-test1";
 
     public static void main(String[] args) throws JMSException {
 //        1、创建ConnectionFactory
