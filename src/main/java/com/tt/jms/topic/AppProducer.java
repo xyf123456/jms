@@ -12,7 +12,7 @@ import javax.jms.*;
  */
 public class AppProducer {
 //    61616是activemq的默认的端口号
-    private static final String url="tcp://192.168.1.101:61616";
+    private static final String url="tcp://192.168.0.102:61616";
 //    创建队列的名称
     private static final String topicName="topic-test";
 

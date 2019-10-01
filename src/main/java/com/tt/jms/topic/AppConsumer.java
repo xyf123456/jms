@@ -6,10 +6,16 @@ import javax.jms.*;
 
 /**
  *  消息消费者（主题模式）
+ *  主题中的消费被所有的订阅者进行消费
+ *  在主题模式下，如果订阅者提前没有订阅发布者，则无法获取发布者已经发布的消息；
+ *  也就是订阅者需要提前绑定发布者的相关信息才可以消费发布者的消息，即订阅者提前运行；
+ *   订阅者提前订阅了发布者的消息，然后多个订阅在消费消息时能够消费发布者的每一条
+ *   消息，这也是和队列模式的最大的不同。
+ *
  */
 public class AppConsumer {
 //    61616是activemq的默认的端口号
-    private static final String url="tcp://192.168.1.101:61616";
+    private static final String url="tcp://192.168.0.102:61616";
 //    创建队列的名称
     private static final String topicName="topic-test";
 

@@ -6,10 +6,12 @@ import javax.jms.*;
 
 /**
  *  消息消费者
+ *  P2P 模式下的队列模式，队列内的消息只能被一个消费者消费
+ *  而且消费者可以随时消费消息
  */
 public class AppConsumer {
 //    61616是activemq的默认的端口号
-    private static final String url="tcp://192.168.1.101:61616";
+    private static final String url="tcp://192.168.0.102:61616";
 //    创建队列的名称
     private static final String queueName="queue-test";
 
